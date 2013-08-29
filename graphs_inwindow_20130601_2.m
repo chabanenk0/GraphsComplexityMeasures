@@ -1,14 +1,15 @@
-filename='ux_04_sh.txt';
+filename='bsesn_04.txt';
 y=dlmread(filename);
 n=length(y);
-wind=500;
+wind=250;
 tstep=5;
-thr_fr=0.5;
+thr_fr=0.5; % используется в smooth_diameter(...)
 crp_emb_dimm=1;
 crp_delay=1;
 crp_epsilon=0.4; %0.1 - Marwan default
-logfile='ux_04_sh_vg_500_5.txt';
+logfile='bsesn_04_vg_250_5.txt';
 graph_type=2;%1 - crp, 2 - visibility
+docalcentr=0; % 0 - не считать сложные локальные меры, 1 - считать
 %graph_type=2;%visibility
 % 20130601 Graph Entropy
 Q=5;
@@ -450,4 +451,4 @@ dlmwrite(outfile,mas_ave_path_length,'\n');
 % outfile=strrep(filename,'.txt','_Sigma_d.txt');
 % dlmwrite(outfile,mas_Sigma_d,'\n');
 
-open_all_logs(logfile);
+open_all_logs(logfile,docalcentr);
